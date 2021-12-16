@@ -68,7 +68,6 @@ resource "aws_subnet" "subnetpub-az-c" {
   }
 }
 
-
 resource "aws_route_table" "route_table" {
   vpc_id = aws_vpc.main.id
   route {

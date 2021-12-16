@@ -43,7 +43,7 @@ resource "aws_subnet" "subnetpriv-az-c" {
 
 resource "aws_subnet" "subnetpub-az-a" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.10.3.0/24"
+  cidr_block        = "10.10.10.0/24"
   availability_zone = "${var.region}a"
   tags = {
     Name = "subnetpub-az-a-${var.project_name}"
@@ -52,7 +52,7 @@ resource "aws_subnet" "subnetpub-az-a" {
 
 resource "aws_subnet" "subnetpub-az-b" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.20.3.0/24"
+  cidr_block        = "10.10.11.0/24"
   availability_zone = "${var.region}b"
   tags = {
     Name = "subnetpub-az-b-${var.project_name}"
@@ -61,7 +61,7 @@ resource "aws_subnet" "subnetpub-az-b" {
 
 resource "aws_subnet" "subnetpub-az-c" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.20.5.0/24"
+  cidr_block        = "10.10.12.0/24"
   availability_zone = "${var.region}c"
   tags = {
     Name = "subnetpub-az-c-${var.project_name}"

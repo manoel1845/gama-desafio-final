@@ -1,3 +1,9 @@
+variable project_name {
+  type        = string
+  default     = "turma3"
+  description = "Adicionar seu nome"
+}
+
 variable region {
   type        = string
   default     = "sa-east-1"
@@ -10,25 +16,3 @@ variable vpc_cidr_block {
   description = "VPC CIDR block"
 }
 
-
-variable key_pair_name {
-  type        = string
-  default     = "kp-mineiro"
-}
-
-variable subnet-az-a {
-  type        = string
-  default     = "subnet-0842414f901483088"
-}
-
-variable vpc_id {
-  type        = string
-  default     = "vpc-03d1b7e53da104e7c"
-  description = "description"
-}
-
-variable project_name {
-  type        = string
-  default     = "turma3"
-  description = "Adicionar seu nome"
-}

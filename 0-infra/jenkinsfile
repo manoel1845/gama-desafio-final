@@ -9,26 +9,26 @@ pipeline {
         }
         stage('Build EC2') {
             steps {
-                sh "chmod +x 0-infra/deploy.sh"
-                sh "0-infra/deploy.sh"
+                sh "chmod +x ~/workspace/build-image-k8s/0-infra/deploy.sh"
+                sh "~/workspace/build-image-k8s/0-infra/deploy.sh"
             }
         }
         stage('Test kubernetes e docker') {
             steps {
-                sh "chmod +x 0-infra/test.sh"
-                sh "0-infra/test.sh"
+                sh "chmod +x ~/workspace/build-image-k8s/0-infra/test.sh"
+                sh "~/workspace/build-image-k8s/0-infra/test.sh"
             }
         }
         stage('Creating ami') {
             steps {
-                sh "chmod +x 0-infra/package-ami.sh"
-                sh "0-infra/package-ami.sh"
+                sh "chmod +x ~/workspace/build-image-k8s/0-infra/package-ami.sh"
+                sh "~/workspace/build-image-k8s/0-infra/package-ami.sh"
             }
         }
         stage('Destroy') {
             steps {
-                sh "chmod +x 0-infra/destroy.sh"
-                sh "0-infra/destroy.sh"
+                sh "chmod +x ~/workspace/build-image-k8s/0-infra/destroy.sh"
+                sh "~/workspace/build-image-k8s/02-pipelineAMI/destroy.sh"
             }
         }
     }

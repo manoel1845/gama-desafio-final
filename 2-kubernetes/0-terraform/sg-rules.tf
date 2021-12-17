@@ -1,4 +1,4 @@
-resource "aws_security_group_rule" "acessos_workers_rule_to_ssh" {
+resource "aws_security_group_rule" "acessos_workers_rule_ssh" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 22
@@ -7,7 +7,7 @@ resource "aws_security_group_rule" "acessos_workers_rule_to_ssh" {
   cidr_blocks      = ["0.0.0.0/0"]
   security_group_id = aws_security_group.acessos_workers.id
 }
-resource "aws_security_group_rule" "acessos_workers_to_masters" {
+resource "aws_security_group_rule" "acessos_workers_masters" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 0
@@ -21,12 +21,12 @@ resource "aws_security_group_rule" "acessos_master_rule_tcp" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 30000
-  to_port          = 32900
+  to_port          = 30000
   protocol         = "tcp"
   cidr_blocks      = ["0.0.0.0/0"]
   security_group_id = aws_security_group.acessos_masters.id
 }
-resource "aws_security_group_rule" "acessos_master_rule_to_ssh" {
+resource "aws_security_group_rule" "acessos_master_rule_ssh" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 22
@@ -35,7 +35,7 @@ resource "aws_security_group_rule" "acessos_master_rule_to_ssh" {
   cidr_blocks      = ["0.0.0.0/0"]
   security_group_id = aws_security_group.acessos_masters.id
 }
-resource "aws_security_group_rule" "acessos_master_to_hproxy" {
+resource "aws_security_group_rule" "acessos_master_hproxy" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 0
@@ -44,7 +44,7 @@ resource "aws_security_group_rule" "acessos_master_to_hproxy" {
   source_security_group_id = aws_security_group.acessos_masters.id
   security_group_id = aws_security_group.acessos_haproxy.id
 }
-resource "aws_security_group_rule" "acessos_master_to_master" {
+resource "aws_security_group_rule" "acessos_master_master" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 0
@@ -53,7 +53,7 @@ resource "aws_security_group_rule" "acessos_master_to_master" {
   source_security_group_id = aws_security_group.acessos_masters.id
   security_group_id = aws_security_group.acessos_masters.id
 }
-resource "aws_security_group_rule" "acessos_master_to_worker" {
+resource "aws_security_group_rule" "acessos_master_workers" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 0
@@ -63,7 +63,7 @@ resource "aws_security_group_rule" "acessos_master_to_worker" {
   security_group_id = aws_security_group.acessos_workers.id
 }
 
-resource "aws_security_group_rule" "acessos_haproxy_to_master" {
+resource "aws_security_group_rule" "acessos_haproxy_master" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 0
@@ -72,7 +72,7 @@ resource "aws_security_group_rule" "acessos_haproxy_to_master" {
   source_security_group_id = aws_security_group.acessos_haproxy.id
   security_group_id = aws_security_group.acessos_masters.id
 }
-resource "aws_security_group_rule" "acessos_haproxy_to_worker" {
+resource "aws_security_group_rule" "acessos_haproxy_to_workers" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 0
@@ -90,7 +90,7 @@ resource "aws_security_group_rule" "acessos_workers_to_haproxy" {
   source_security_group_id = aws_security_group.acessos_haproxy.id
   security_group_id = aws_security_group.acessos_workers.id
 }
-resource "aws_security_group_rule" "acessos_haproxy_to_ssh" {
+resource "aws_security_group_rule" "acessos_haproxy_ssh" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 22

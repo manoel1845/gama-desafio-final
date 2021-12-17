@@ -1,7 +1,7 @@
 resource "aws_security_group" "acessos_masters" {
   name        = "k8s_acessos_masters_${var.project_name}"
   description = "acessos inbound traffic"
-  vpc_id = aws_vpc.main.id
+  vpc_id      = aws_vpc.main.id
 
   egress = [
     {
@@ -10,10 +10,10 @@ resource "aws_security_group" "acessos_masters" {
       protocol         = "-1"
       cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks = [],
-      prefix_list_ids = null,
-      security_groups: null,
-      self: null,
-      description: "Libera dados da rede interna"
+      prefix_list_ids  = null,
+      security_groups : null,
+      self : null,
+      description : "Libera dados da rede interna"
     }
   ]
 
@@ -25,7 +25,7 @@ resource "aws_security_group" "acessos_masters" {
 resource "aws_security_group" "acessos_haproxy" {
   name        = "k8s_haproxy_${var.project_name}"
   description = "acessos inbound traffic"
-  vpc_id = aws_vpc.main.id
+  vpc_id      = aws_vpc.main.id
 
   egress = [
     {
@@ -34,10 +34,10 @@ resource "aws_security_group" "acessos_haproxy" {
       protocol         = "-1"
       cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks = [],
-      prefix_list_ids = null,
-      security_groups: null,
-      self: null,
-      description: "Libera dados da rede interna"
+      prefix_list_ids  = null,
+      security_groups : null,
+      self : null,
+      description : "Libera dados da rede interna"
     }
   ]
 
@@ -49,7 +49,7 @@ resource "aws_security_group" "acessos_haproxy" {
 resource "aws_security_group" "acessos_workers" {
   name        = "k8s_workers_${var.project_name}"
   description = "acessos inbound traffic"
-  vpc_id = aws_vpc.main.id
+  vpc_id      = aws_vpc.main.id
 
   egress = [
     {
@@ -58,10 +58,10 @@ resource "aws_security_group" "acessos_workers" {
       protocol         = "-1"
       cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks = [],
-      prefix_list_ids = null,
-      security_groups: null,
-      self: null,
-      description: "Libera dados da rede interna"
+      prefix_list_ids  = null,
+      security_groups : null,
+      self : null,
+      description : "Libera dados da rede interna"
     }
   ]
 

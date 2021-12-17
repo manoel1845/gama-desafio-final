@@ -10,9 +10,14 @@ variable "region" {
   description = "Região da AWS"
 }
 
-variable "vpc_cidr_block" {
+variable key_pair_name {
   type        = string
-  default     = "10.10.0.0/16"
-  description = "VPC CIDR block"
+  default     = "kp-mineiro"
+}
+
+variable path_kp {
+  type        = string
+  default     = "~/kp-mineiro.pem"
+  description = "Caminho completo para chave privada com o nome da chave"
 }
 

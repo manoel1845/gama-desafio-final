@@ -1,8 +1,8 @@
 resource "aws_security_group" "acessos_masters" {
   name        = "k8s-acessos_masters-${var.project_name}"
   description = "acessos inbound traffic"
-  vpc_id = aws_vpc.main.id
-
+  vpc_id = var.vpc_id
+  
   egress = [
     {
       from_port        = 0
@@ -25,8 +25,8 @@ resource "aws_security_group" "acessos_masters" {
 resource "aws_security_group" "acessos_haproxy" {
   name        = "k8s-haproxy-${var.project_name}"
   description = "acessos inbound traffic"
-  vpc_id = aws_vpc.main.id
-
+  vpc_id = var.vpc_id
+  
   egress = [
     {
       from_port        = 0
@@ -49,8 +49,8 @@ resource "aws_security_group" "acessos_haproxy" {
 resource "aws_security_group" "acessos_workers" {
   name        = "k8s-workers-${var.project_name}"
   description = "acessos inbound traffic"
-  vpc_id = aws_vpc.main.id
-
+  vpc_id = var.vpc_id
+  
   egress = [
     {
       from_port        = 0

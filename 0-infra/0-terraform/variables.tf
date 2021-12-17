@@ -15,3 +15,14 @@ variable "vpc_cidr_block" {
   default     = "10.10.0.0/16"
   description = "VPC CIDR block"
 }
+
+variable "key_pair_name" {
+  type    = string
+  default = "kp-mineiro"
+}
+
+variable "path_kp" {
+  type    = string
+  default = "~/kp-mineiro.pem"
+}
+

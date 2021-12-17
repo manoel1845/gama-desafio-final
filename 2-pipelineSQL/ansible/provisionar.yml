@@ -39,7 +39,7 @@
       become: yes
       mysql_user:
         name: "{{ lookup('env', 'USER') }}"
-        host: localhost
+        host: '%'
         password: "{{ lookup('env', 'PASSWORD') }}"
         priv: "*.*:ALL,GRANT"
         state: present
@@ -51,6 +51,7 @@
         state: started
     
     # - name: "Alterando senha usuario SQL"
+    #   ignore_errors: yes
     #   become: yes
     #   mysql_user:
     #     name: "root"
@@ -108,10 +109,10 @@
         login_password: "{{ lookup('env', 'PASSWORD') }}"
         state: present
 
-    - name: "Copia Arquivo Dump SQL"
-      copy:
-        src: "dumpsql/dumpsql.sql"
-        dest: "/tmp/dumpsql.sql"
+    # - name: "Copia Arquivo Dump SQL"
+    #   copy:
+    #     src: "dumpsql/dumpsql.sql"
+    #     dest: "/tmp/dumpsql.sql"
     
-    - name: "Copia Dump para MySQL"
-      shell: "mysql -u root -p\"{{ lookup('env', 'PASSWORD') }}\" < /tmp/dumpsql.sql"
+    # - name: "Copia Dump para MySQL"
+    #   shell: "mysql -u root -p\"{{ lookup('env', 'PASSWORD') }}\" < /tmp/dumpsql.sql"

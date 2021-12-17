@@ -15,9 +15,9 @@
     - name: "Roda: sudo apt-get update"
       become: yes
       apt:
-        upgrade: yes
+        #upgrade: yes
         update_cache: yes
-        cache_valid_time: 86400 #Um dia
+        #cache_valid_time: 86400 #Um dia
 
     - name: "Instala pacotes"
       apt:
@@ -84,102 +84,14 @@
   - ec2-k8s-w1
   - ec2-k8s-w2
   - ec2-k8s-w3
-
+  
   tasks:
-    - name: install packages required by docker
-      become: true
-      apt:
-        update_cache: yes
-        state: latest
-        name:
-        - apt-transport-https
-        - ca-certificates
-        - curl
-        - gpg-agent
-        - software-properties-common
-
-    - name: add docker GPG key
-      become: true
-      apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
-
-    - name: add docker apt repo
-      become: true
-      apt_repository:
-        repo: deb https://download.docker.com/linux/ubuntu bionic stable
-        state: present
-
-    - name: install docker
-      become: true
-      apt:
-        update_cache: yes
-        state: latest
-        name:
-        - docker-ce
-        - docker-ce-cli
-        - containerd.io
-
-    - name: "Corrigindo docker para o kubernetes"
-      copy:
-        src: "docker/daemon.json"
-        dest: "/etc/docker/daemon.json"
-      become: yes
-
-    - name: "Restart docker"
-      shell: sudo systemctl daemon-reload && sudo systemctl restart docker # && sudo systemctl restart kubelet
-      become: yes
-
-    - name: Remove swapfile from /etc/fstab
-      mount:
-        name: "{{ item }}"
-        fstype: swap
-        state: absent
-      with_items:
-        - swap
-        - none
-
-    - name: Disable swap
-      command: swapoff -a
-      when: ansible_swaptotal_mb > 0
-
-    - name: Add an apt signing key for Kubernetes
-      become: true
-      apt_key:
-        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        state: present
-
-    - name: Adding apt repository for Kubernetes
-      become: true
-      apt_repository:
-        repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
-        state: present
-        filename: kubernetes.list
-
-    - name: Install Kubernetes binaries
-      become: true
-      apt: 
-        name: "{{ packages }}"
-        state: present
-        update_cache: yes
-      vars:
-        packages:
-          - kubelet 
-          - kubeadm 
-          - kubectl
-
-    - name: Restart kubelet
-      become: true
-      service:
-        name: kubelet
-        daemon_reload: yes
-        state: restarted
-
     - name: "Host para o haproxy"
       copy:
         src: "host/hosts"
         dest: "/etc/hosts"
       become: yes
+
 # ---
 - hosts:
   - ec2-k8s-m1
@@ -215,4 +127,3 @@
 # ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/Desktop/devops/treinamentoItau
 # ssh -i ~/Desktop/devops/treinamentoItau ubuntu@ec2-54-152-41-46.compute-1.amazonaws.com
 # systemctl status haproxy | less
-

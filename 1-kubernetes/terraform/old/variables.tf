@@ -10,12 +10,12 @@ variable "region" {
   description = "Região da AWS"
 }
 
-variable key_pair_name {
-  type        = string
-  default     = "kp-mineiro"
+variable "key_pair_name" {
+  type    = string
+  default = "kp-mineiro"
 }
 
-variable path_kp {
+variable "path_kp" {
   type        = string
   default     = "~/kp-mineiro.pem"
   description = "Caminho completo para chave privada com o nome da chave"

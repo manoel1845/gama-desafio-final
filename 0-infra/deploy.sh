@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd 0-terraform
+cd ~/workspace/build-image-k8s/0-infra/0-terraform
 terraform init
 terraform apply -auto-approve
 

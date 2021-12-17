@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd terraform
+cd 2-pipelineSQL/terraform
 terraform init
 # AMI ubuntu
 terraform apply -auto-approve

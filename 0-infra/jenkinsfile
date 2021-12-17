@@ -28,7 +28,7 @@ pipeline {
         stage('Destroy') {
             steps {
                 sh "chmod +x ~/workspace/build-image-k8s/0-infra/destroy.sh"
-                sh "~/workspace/build-image-k8s/02-pipelineAMI/destroy.sh"
+                sh "~/workspace/build-image-k8s/0-infra/destroy.sh"
             }
         }
     }

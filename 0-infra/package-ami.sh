@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ~/workspace/build-image-k8s
-VERSAO=$(git describe --tags $(git rev-list --tags --max-count=1))
+AMI_VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))
 
 cd ~/workspace/build-image-k8s/0-infra/0-terraform
 RESOURCE_ID=$(terraform output | grep resource_id | awk '{print $2;exit}' | sed -e "s/\",//g")

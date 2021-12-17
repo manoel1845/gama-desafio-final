@@ -1,11 +1,11 @@
 #!/bin/bash
 
-cd 04-pipelineSQL/terraform
+cd terraform
 terraform init
 # AMI ubuntu
 terraform apply -auto-approve
 
-echo "Aguardando criação de maquinas ..."
+echo "Passo 1 - Aguardando criação de maquinas..."
 sleep 10 # 10 segundos
 
 echo $"[ec2-mysql-dev]" > ../ansible/hosts # cria arquivo
@@ -27,8 +27,11 @@ echo $"password=$PASSWORD" >> dumpsql/.my.cnf
 
 #ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/.ssh/chaveprivada.pem
 
-echo "Executando ansible ::::: [ ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /var/lib/jenkins/.ssh/id_rsa ]"
-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /var/lib/jenkins/.ssh/id_rsa
+# echo "Executando ansible ::::: [ ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /var/lib/jenkins/.ssh/id_rsa ]"
+# ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /var/lib/jenkins/.ssh/id_rsa
+
+echo "Executando ansible ::::: [ ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/kp-mineiro.pem ]"
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/kp-mineiro.pem
 
 echo $"[client]" > dumpsql/.my.cnf
 echo $"user=root" >> dumpsql/.my.cnf

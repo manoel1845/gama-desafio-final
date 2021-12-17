@@ -1,16 +1,16 @@
-data "aws_ami" "ami-ubuntu" {
-  most_recent = true
+# data "aws_ami" "ami-ubuntu" {
+#   most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-  owners = ["099720109477"]
-}
+#   filter {
+#     name   = "name"
+#     values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+#   }
+#   owners = ["099720109477"]
+# }
 
 resource "aws_instance" "k8s_proxy" {
-  ami                         = data.aws_ami.ami-ubuntu.id
-  subnet_id                   = var.subnet-az-a
+  ami                         = var.ami_id
+  subnet_id                   = var.subnets[0]
   instance_type               = "t2.medium"
   key_name                    = var.key_pair_name
   associate_public_ip_address = true
@@ -26,14 +26,14 @@ resource "aws_instance" "k8s_proxy" {
 }
 
 resource "aws_instance" "k8s_masters" {
-  ami                         = data.aws_ami.ami-ubuntu.id
+  ami                         = var.ami_id
+  subnet_id                   = "${each.value}"
   associate_public_ip_address = true
-  subnet_id                   = var.subnet-az-a
   instance_type               = "t2.large"
   key_name                    = var.key_pair_name
   count                       = 3
   tags = {
-    Name = "k8s-master-${count.index}-${var.project_name}"
+    Name = "k8s-master-${count.index}-${var.project_name}-${each.key}"
   }
   root_block_device {
     delete_on_termination = true
@@ -47,11 +47,11 @@ resource "aws_instance" "k8s_masters" {
 }
 
 resource "aws_instance" "k8s_workers" {
-  ami                         = data.aws_ami.ami-ubuntu.id
+  ami                         = var.ami_id
+  subnet_id                   = "${each.value}"
   instance_type               = "t2.medium"
   key_name                    = var.key_pair_name
   associate_public_ip_address = true
-  subnet_id                   = var.subnet-az-a
   count                       = 3
   root_block_device {
     delete_on_termination = true
@@ -59,7 +59,7 @@ resource "aws_instance" "k8s_workers" {
     volume_size           = 32
   }
   tags = {
-    Name = "k8s_workers-${count.index}-${var.project_name}"
+    Name = "k8s_workers-${count.index}-${var.project_name}-${each.key}"
   }
   vpc_security_group_ids = [aws_security_group.acessos_workers.id]
 }

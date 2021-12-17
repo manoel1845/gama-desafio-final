@@ -5,7 +5,7 @@ KP_PATH="/var/lib/jenkins/kp-mineiro.pem"
 
 cd 1-kubernetes/terraform
 terraform init
-TF_VAR_amiId=$AMI_ID terraform apply -auto-approve
+TF_VAR_ami_id=$AMI_ID terraform apply -auto-approve
 
 echo  "Aguardando a criação das maquinas ..."
 sleep 5

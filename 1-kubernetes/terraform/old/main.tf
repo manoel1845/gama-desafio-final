@@ -301,9 +301,11 @@ variable "subnets" {
 }
 variable "vpcId" {
   type        = string
+  default = "vpc-0e1d4202750496496"
   description = "vpcId"
 }
 variable "chave" {
   type        = string
+  default = "kp-mineiro"
   description = "chave"
 }

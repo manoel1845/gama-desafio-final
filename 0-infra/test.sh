@@ -1,5 +1,6 @@
 #!/bin/bash
-cd 0-infra/0-terraform
+
+cd ~/workspace/build-image-k8s/0-infra/0-terraform
 
 public_ip=$(terraform output | grep public_ip | awk '{print $2;exit}' | sed -e "s/\",//g")
 

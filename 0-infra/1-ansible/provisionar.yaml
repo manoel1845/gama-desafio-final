@@ -82,7 +82,7 @@
           - kubeadm 
           - kubectl
 
-     - name: Restart kubelet
+    - name: Restart kubelet
       become: true
       service:
         name: kubelet

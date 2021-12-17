@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd ~/workspace/build-image-k8s
 VERSAO=$(git describe --tags $(git rev-list --tags --max-count=1))
 
 cd ~/workspace/build-image-k8s/0-infra/0-terraform

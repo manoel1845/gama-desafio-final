@@ -13,8 +13,8 @@ pipeline {
         }
         stage('Build Cluster') {
             steps {
-                sh 'chmod +x ~/workspace/Pipeline-Criar-mysql/2-pipelineSQL/deploy.sh'
-                sh "~/workspace/Pipeline-Criar-mysql/2-pipelineSQL/deploy.sh"
+                sh 'chmod +x 2-pipelineSQL/deploy.sh'
+                sh "2-pipelineSQL/deploy.sh"
             }
         }
 

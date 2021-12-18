@@ -20,7 +20,7 @@ resource "aws_instance" "k8s_proxy" {
   root_block_device {
     delete_on_termination = true
     encrypted             = true
-    volume_size           = 30
+    volume_size           = 32
   }
   vpc_security_group_ids = [aws_security_group.acessos_haproxy.id]
 }
@@ -38,7 +38,7 @@ resource "aws_instance" "k8s_masters" {
   root_block_device {
     delete_on_termination = true
     encrypted             = true
-    volume_size           = 30
+    volume_size           = 32
   }
   vpc_security_group_ids = [aws_security_group.acessos_masters.id]
   depends_on = [
@@ -56,7 +56,7 @@ resource "aws_instance" "k8s_workers" {
   root_block_device {
     delete_on_termination = true
     encrypted             = true
-    volume_size           = 30
+    volume_size           = 32
   }
   tags = {
     Name = "k8s_workers-${count.index}-${var.project_name}"

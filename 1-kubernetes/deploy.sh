@@ -97,6 +97,8 @@ backend k8s-masters
 " > ../ansible/haproxy/haproxy.cfg
 
 echo  "Configurando host do haproxy ..."
+
+cd ../ansible/host/
 echo "
 127.0.0.1 localhost
 $ID_HAPROXY k8s-haproxy # IP privado proxy
@@ -107,10 +109,10 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
-" > ../ansible/hosts/hosts
+" > hosts
 
 echo  "Rodando provisionar.yml ..."
-cd ../ansible
+cd ../../ansible
 
 ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key $KP_PATH
 ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key $KP_PATH)

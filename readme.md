@@ -32,3 +32,8 @@ Ansible
 Jenkins
 Kubernets
 Docker
+
+
+:
+
+![Algorithm schema](./images/schema.jpg)

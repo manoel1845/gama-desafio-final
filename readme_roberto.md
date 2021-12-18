@@ -13,11 +13,9 @@
 
 ## Conteúdo
 * [Escopo](#Escopo)
-* [Tecnologias Utilizadas](#Tecnologias_Utilizadas)
-* [Imagens](#Imagens)
+* [Tecnologias_Utilizadas](#Tecnologias_Utilizadas)
+* [Topologia](#Topologia)
 * [Instalação](#Instalacao)
-* [Status do Projeto](#Status_do_Projeto)
-* [Espaço para melhorias](#Espaço_para_melhorias)
 * [Agradecimentos](#Agradecimentos)
 * [Contato](#Contato)
 <!-- * [License](#license) -->
@@ -31,7 +29,7 @@
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
-## Tecnologias Utilizadas
+## Tecnologias_Utilizadas
 - AWS
 - Ubuntu
 - MySql
@@ -42,31 +40,16 @@
 - Docker
 
 
-## Imagens
-![Topologia do Projeto](/home/ubuntu/129115451287fYwK.jpg )
+## Topologia
+<p align="center">
+  <a>
+    <img alt="Topologia" title="Topologia" src="https://redes-informatica.webnode.pt/_files/200000018-cfe99d1de8/10(10).jpg" width="450">
+  </a>
+</p>
+
+
+- [Topologia](/home/ubuntu/129115451287fYwK.jpg)
 <!-- If you have screenshots you'd like to share, include them here. -->
-
-
-## Instalação
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
-
-## Status do Projeto
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
-
-## Espaço para melhorias
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
 
 
 ## Agradecimentos

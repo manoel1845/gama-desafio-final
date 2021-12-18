@@ -43,12 +43,12 @@
 ## Topologia
 <p align="center">
   <a>
-    <img alt="Topologia" title="Topologia" src="https://redes-informatica.webnode.pt/_files/200000018-cfe99d1de8/10(10).jpg" width="450">
+    <img alt="Topologia" title="Topologia" src="/home/ubuntu/129115451287fYwK.jpg" width="450">
   </a>
 </p>
 
 
-- [Topologia](/home/ubuntu/129115451287fYwK.jpg)
+-![Topologia](/home/ubuntu/129115451287fYwK.jpg)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 

@@ -1,11 +1,20 @@
+<h1 align="center"> Grupo Pipe Five</h1> <br>
+<p align="center">
+  <a>
+    <img alt="PipeFive" title="PipeFive" src="https://i5.walmartimages.com/asr/e80b097b-b093-4566-b32d-8da579efd798_1.ecba62a1475587b22f843785720ecd90.jpeg" width="450">
+  </a>
+</p>
+
+
+
 # GRUP0 PIPEFIVE
 > Este projeto tem por objetivo exercitar os conhecimentos adquiridos no treinamento Gama DOTI 2.0.
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Conteúdo
-* [Meta](#Meta)
-* [Tecnologias Utilizadas](#technologies-used)
-* [Imagens](#screenshots)
+* [Objtivos](#Objetivos)
+* [Tecnologias Utilizadas](#tecnologias_utilizadas)
+* [Imagens](#imagens)
 * [Instalação](#setup)
 * [Status do Projeto](#project-status)
 * [Espaço para melhorias](#room-for-improvement)
@@ -14,7 +23,7 @@
 <!-- * [License](#license) -->
 
 
-#Meta
+## Objetivos
 - Criar uma rede isolada para esta aplicação
 - Criar uma pipeline de infraestrutura para provisionar uma imagem que será utilizada em um cluster kubernetes(single master)
 - Criar uma pipeline para provisionar o banco de dados (dev, stage, prod) que será utilizado nas aplicações que estarão no kubernetes. Esta base de dados, será provisionada em uma instância privada, com acesso a Internet via Nat Gateway na mesma vpc do kubernetes multi master

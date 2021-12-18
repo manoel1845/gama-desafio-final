@@ -43,20 +43,16 @@
 ## Topologia
 <p align="center">
   <a>
-    <img alt="Topologia" title="Topologia" src="/home/ubuntu/129115451287fYwK.jpg" width="450">
+    <img alt="Topologia" title="Topologia" src="https://redes-informatica.webnode.pt/_files/200000018-cfe99d1de8/10(10).jpg" width="450">
   </a>
 </p>
 
-
--![Topologia](/home/ubuntu/129115451287fYwK.jpg)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Agradecimentos
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+Agradecimentos ao Itaú por nos proporcionar este treinamento e ao time da Gama, especialmente ao professor Danilo por toda sua paciência e a Regina que nos suportou durante todo o período do curso.
+
 
 
 ## Contato

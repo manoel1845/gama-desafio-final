@@ -29,7 +29,7 @@ resource "aws_instance" "k8s_masters" {
   ami                         = var.ami_id
   subnet_id                   = element(var.subnet_ids, count.index)
   associate_public_ip_address = true
-  instance_type               = "t2.large"
+  instance_type               = "t3.large"
   key_name                    = var.key_pair_name
   count                       = 3
   tags = {

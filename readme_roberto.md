@@ -8,18 +8,18 @@
 
 
 # Objetivos
-> Este projeto tem por objetivo exercitar os conhecimentos adquiridos no treinamento Gama DOTI 2.0.
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+* Este projeto tem por objetivo exercitar os conhecimentos adquiridos no treinamento Gama DOTI 2.0.
+* Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Conteúdo
 * [Escopo](#Escopo)
 * [Tecnologias Utilizadas](#Tecnologias Utilizadas)
 * [Imagens](#Imagens)
-* [Instalação](#Instalação)
-* [Status do Projeto](#Status do Projeto)
-* [Espaço para melhorias](#Espaço para melhorias)
-* [Agradecimentos](#acknowledgements)
-* [Contato](#contact)
+* [Instalação](#Instalacao)
+* [Status do Projeto](#Status_do_Projeto)
+* [Espaço para melhorias](#Espaço_para_melhorias)
+* [Agradecimentos](#Agradecimentos)
+* [Contato](#Contato)
 <!-- * [License](#license) -->
 
 

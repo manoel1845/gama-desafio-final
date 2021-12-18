@@ -8,11 +8,11 @@ echo "Passo 1 - Aguardando criação de maquinas..."
 sleep 10 # 10 segundos
 
 echo $"[ec2-mysql-dev]" > ../ansible/hosts # cria arquivo
-echo "$(terraform output | grep mysql_instance_1 | awk '{print $2;exit}' | sed -e "s/\",//g")" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
+echo "$(terraform output | grep mysql_instance_1 | awk '{print $3;exit}' | sed -e "s/\",//g")" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
 echo $"[ec2-mysql-stag]" >> ../ansible/hosts # cria arquivo
-echo "$(terraform output | grep mysql_instance_2 | awk '{print $2;exit}' | sed -e "s/\",//g")" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
+echo "$(terraform output | grep mysql_instance_2 | awk '{print $3;exit}' | sed -e "s/\",//g")" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
 echo $"[ec2-mysql-prod]" >> ../ansible/hosts # cria arquivo
-echo "$(terraform output | grep mysql_instance_3 | awk '{print $2;exit}' | sed -e "s/\",//g")" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
+echo "$(terraform output | grep mysql_instance_3 | awk '{print $3;exit}' | sed -e "s/\",//g")" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
 
 
 echo "Aguardando criação de maquinas ..."

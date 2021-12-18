@@ -8,7 +8,8 @@ Meta:
 
 ● Criar uma pipeline de infraestrutura para provisionar uma imagem que será utilizada em um cluster kubernetes(single master)
 
-● Criar uma pipeline para provisionar um cluster multi master utilizando a imagem criada na pipeline de infraestrutura
+exit
+
 
 ● Criar uma pipeline para provisionar o banco de dados (dev, stage, prod) que será utilizado nas aplicações que estarão no kubernetes. Esta base de dados, será provisionada em uma instância privada, com acesso a Internet via Nat Gateway na mesma vpc do kubernetes multi master
 

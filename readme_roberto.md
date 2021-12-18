@@ -55,10 +55,10 @@ Agradecimentos ao Itaú por nos proporcionar este treinamento e ao time da Gama,
 
 ## Time
 Projeto desenvolvido pelo time Pipe Five:
-Michelle
-Manoel
-Marcelo
-Roberto
+- Michelle
+- Manoel (Mineiro)
+- Marcelo
+- Roberto
 
 
 

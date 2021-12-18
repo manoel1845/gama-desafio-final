@@ -1,4 +1,4 @@
-<h1 align="center"> Grupo Pipe Five</h1> <br>
+<h1 align="center"> Grupo Pipe Five</h2> <br>
 <p align="center">
   <a>
     <img alt="PipeFive" title="PipeFive" src="https://i5.walmartimages.com/asr/e80b097b-b093-4566-b32d-8da579efd798_1.ecba62a1475587b22f843785720ecd90.jpeg" width="450">
@@ -6,7 +6,7 @@
 </p>
 
 
-# Objetivos
+## Objetivos
 * Este projeto tem por objetivo exercitar os conhecimentos adquiridos no treinamento Gama DOTI 2.0.
 * Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
@@ -16,7 +16,7 @@
 * [Tecnologias_Utilizadas](#Tecnologias_Utilizadas)
 * [Topologia](#Topologia)
 * [Agradecimentos](#Agradecimentos)
-* [Contato](#Contato)
+* [Time](#Time)
 <!-- * [License](#license) -->
 
 

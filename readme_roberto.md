@@ -7,23 +7,23 @@
 
 
 
-# GRUP0 PIPEFIVE
+# Objetivos
 > Este projeto tem por objetivo exercitar os conhecimentos adquiridos no treinamento Gama DOTI 2.0.
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Conteúdo
-* [Objtivos](#Objetivos)
-* [Tecnologias Utilizadas](#tecnologias_utilizadas)
-* [Imagens](#imagens)
-* [Instalação](#setup)
-* [Status do Projeto](#project-status)
-* [Espaço para melhorias](#room-for-improvement)
+* [Escopo](#Escopo)
+* [Tecnologias Utilizadas](#Tecnologias Utilizadas)
+* [Imagens](#Imagens)
+* [Instalação](#Instalação)
+* [Status do Projeto](#Status do Projeto)
+* [Espaço para melhorias](#Espaço para melhorias)
 * [Agradecimentos](#acknowledgements)
 * [Contato](#contact)
 <!-- * [License](#license) -->
 
 
-## Objetivos
+## Escopo
 - Criar uma rede isolada para esta aplicação
 - Criar uma pipeline de infraestrutura para provisionar uma imagem que será utilizada em um cluster kubernetes(single master)
 - Criar uma pipeline para provisionar o banco de dados (dev, stage, prod) que será utilizado nas aplicações que estarão no kubernetes. Esta base de dados, será provisionada em uma instância privada, com acesso a Internet via Nat Gateway na mesma vpc do kubernetes multi master

@@ -54,9 +54,13 @@
 Agradecimentos ao Itaú por nos proporcionar este treinamento e ao time da Gama, especialmente ao professor Danilo por toda sua paciência e a Regina que nos suportou durante todo o período do curso.
 
 
+## Time
+Projeto desenvolvido pelo time Pipe Five:
+Michelle
+Manoel
+Marcelo
+Roberto
 
-## Contato
-Criado by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
 
 
 <!-- Optional -->

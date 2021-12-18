@@ -1,7 +1,7 @@
 - hosts: all
   environment:
     PASSWORD: "{{ lookup('env', 'PASSWORD') }}"
-    USER: "{{ lookup('env', 'USER') }}"
+    #USER: "{{ lookup('env', 'USER') }}"
 
   tasks:
     - name: "Roda: sudo apt update"
@@ -20,8 +20,8 @@
         - python3-pycurl
         - python3-mysqldb
 
-    - name: Adicionar USER no bashrc
-      lineinfile: dest=~/.bashrc line='export USER={{ lookup('env', 'USER') }}' state=present
+    # - name: Adicionar USER no bashrc
+    #   lineinfile: dest=~/.bashrc line='export USER={{ lookup('env', 'USER') }}' state=present
 
     - name: Adicionar PASSWORD no bashrc
       lineinfile: dest=~/.bashrc line='export PASSWORD={{ lookup('env', 'PASSWORD') }}' state=present
@@ -38,7 +38,7 @@
       ignore_errors: yes
       become: yes
       mysql_user:
-        name: "{{ lookup('env', 'USER') }}"
+        name: "root"
         host: '%'
         password: "{{ lookup('env', 'PASSWORD') }}"
         priv: "*.*:ALL,GRANT"
@@ -92,8 +92,6 @@
     # CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '';
     # GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
     # FLUSH PRIVILEGES;
-
-
 
     - name: "Restart do serviço do mysql"
       become: yes

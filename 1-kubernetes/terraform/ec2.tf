@@ -10,7 +10,7 @@
 
 resource "aws_instance" "k8s_proxy" {
   ami                         = var.ami_id
-  subnet_id                   = var.subnets[0]
+  subnet_id                   = element(var.subnet_ids, 1)
   instance_type               = "t2.medium"
   key_name                    = var.key_pair_name
   associate_public_ip_address = true
@@ -27,13 +27,13 @@ resource "aws_instance" "k8s_proxy" {
 
 resource "aws_instance" "k8s_masters" {
   ami                         = var.ami_id
-  subnet_id                   = "${each.value}"
+  subnet_id                   = element(var.subnet_ids, count.index)
   associate_public_ip_address = true
   instance_type               = "t2.large"
   key_name                    = var.key_pair_name
   count                       = 3
   tags = {
-    Name = "k8s-master-${count.index}-${var.project_name}-${each.key}"
+    Name = "k8s-master-${count.index}-${var.project_name}"
   }
   root_block_device {
     delete_on_termination = true
@@ -48,7 +48,7 @@ resource "aws_instance" "k8s_masters" {
 
 resource "aws_instance" "k8s_workers" {
   ami                         = var.ami_id
-  subnet_id                   = "${each.value}"
+  subnet_id                   = element(var.subnet_ids, count.index)
   instance_type               = "t2.medium"
   key_name                    = var.key_pair_name
   associate_public_ip_address = true
@@ -59,7 +59,7 @@ resource "aws_instance" "k8s_workers" {
     volume_size           = 32
   }
   tags = {
-    Name = "k8s_workers-${count.index}-${var.project_name}-${each.key}"
+    Name = "k8s_workers-${count.index}-${var.project_name}"
   }
   vpc_security_group_ids = [aws_security_group.acessos_workers.id]
 }

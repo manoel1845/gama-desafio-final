@@ -11,7 +11,7 @@
 resource "aws_instance" "k8s_proxy" {
   ami                         = var.ami_id
   subnet_id                   = element(var.subnet_ids, 1)
-  instance_type               = "t2.medium"
+  instance_type               = "t3.medium"
   key_name                    = var.key_pair_name
   associate_public_ip_address = true
   tags = {
@@ -49,7 +49,7 @@ resource "aws_instance" "k8s_masters" {
 resource "aws_instance" "k8s_workers" {
   ami                         = var.ami_id
   subnet_id                   = element(var.subnet_ids, count.index)
-  instance_type               = "t2.medium"
+  instance_type               = "t3.medium"
   key_name                    = var.key_pair_name
   associate_public_ip_address = true
   count                       = 3

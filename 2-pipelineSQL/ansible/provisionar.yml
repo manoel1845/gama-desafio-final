@@ -26,8 +26,8 @@
     - name: Adicionar PASSWORD no bashrc
       lineinfile: dest=~/.bashrc line='export PASSWORD={{ lookup('env', 'PASSWORD') }}' state=present
 
-    - name: Adicionar DATABASE_URL no bashrc
-      lineinfile: dest=~/.bashrc line='export DATABASE_URL="mysql://localhost:3306/{{ lookup('env', 'DATABASE') }}?useTimezone=true&serverTimezone=UTC"' state=present
+    # - name: Adicionar DATABASE_URL no bashrc
+    #   lineinfile: dest=~/.bashrc line='export DATABASE_URL="mysql://localhost:3306/{{ lookup('env', 'DATABASE') }}?useTimezone=true&serverTimezone=UTC"' state=present
 
     - name: Aplicar o bashrc
       shell: source ~/.bashrc
@@ -38,6 +38,7 @@
       #ignore_errors: yes
       become: yes
       mysql_user:
+        host_all: true
         name: "root"
         host: '%'
         password: "{{ lookup('env', 'PASSWORD') }}"
@@ -91,5 +92,5 @@
         src: "dumpsql/dumpsql.sql"
         dest: "/tmp/dumpsql.sql"
     
-    # - name: "Copia Dump para MySQL"
-    #   shell: "mysql -u root -p\"{{ lookup('env', 'PASSWORD') }}\" < /tmp/dumpsql.sql"
+    - name: "Copia Dump para MySQL"
+      shell: "mysql -u root -p\"{{ lookup('env', 'PASSWORD') }}\" < /tmp/dumpsql.sql"

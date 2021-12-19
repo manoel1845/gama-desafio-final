@@ -38,7 +38,6 @@
       ignore_errors: yes
       become: yes
       mysql_user:
-        host_all: true
         name: "root"
         host: "%"
         password: "{{ lookup('env', 'PASSWORD') }}"

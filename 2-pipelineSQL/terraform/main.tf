@@ -1,3 +1,14 @@
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "itau-gama"
+
+    workspaces {
+      name = "build-mysql"
+    }
+  }
+}
+
 provider "aws" {
   region = "sa-east-1"
 }

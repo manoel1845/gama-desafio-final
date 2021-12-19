@@ -35,7 +35,7 @@
         executable: /bin/bash
 
     - name: "Criando senha root mysql"
-      #ignore_errors: yes
+      ignore_errors: yes
       become: yes
       mysql_user:
         host_all: true

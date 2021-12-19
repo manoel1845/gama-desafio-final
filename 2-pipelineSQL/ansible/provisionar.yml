@@ -35,7 +35,7 @@
         executable: /bin/bash
 
     - name: "Criando senha root mysql"
-      ignore_errors: yes
+      #ignore_errors: yes
       become: yes
       mysql_user:
         name: "root"
@@ -50,17 +50,6 @@
         name: mysql
         state: started
     
-    # - name: "Alterando senha usuario SQL"
-    #   ignore_errors: yes
-    #   become: yes
-    #   mysql_user:
-    #     name: "root"
-    #     host_all: true
-    #     password: "{{ lookup('env', 'PASSWORD') }}"
-    #     priv: "*.*:ALL,GRANT"
-    #     state: present
-    #     check_implicit_admin: true
-
     - name: "Tornando senha nova visivel para o Ansible"
       become: yes
       copy:
@@ -83,16 +72,6 @@
         regexp: '^mysqlx-bind-address'
         line: 'mysqlx-bind-address = 0.0.0.0'
     
-    # TODO descobrir como fazer isso
-    # CREATE USER 'root'@'127.0.0.1' IDENTIFIED WITH mysql_native_password BY '';
-    # GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1';
-    # FLUSH PRIVILEGES;
-
-    # # liberando user root para conectar com qualquer IP
-    # CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '';
-    # GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
-    # FLUSH PRIVILEGES;
-
     - name: "Restart do serviço do mysql"
       become: yes
       service:
@@ -107,10 +86,10 @@
         login_password: "{{ lookup('env', 'PASSWORD') }}"
         state: present
 
-    # - name: "Copia Arquivo Dump SQL"
-    #   copy:
-    #     src: "dumpsql/dumpsql.sql"
-    #     dest: "/tmp/dumpsql.sql"
+    - name: "Copia Arquivo Dump SQL"
+      copy:
+        src: "dumpsql/dumpsql.sql"
+        dest: "/tmp/dumpsql.sql"
     
     # - name: "Copia Dump para MySQL"
     #   shell: "mysql -u root -p\"{{ lookup('env', 'PASSWORD') }}\" < /tmp/dumpsql.sql"

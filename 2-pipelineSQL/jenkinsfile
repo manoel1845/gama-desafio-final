@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone repo') {
             steps {
-                git url: 'https://github.com/manoel1845/gama-desafio-final', branch: 'db'
+                git url: 'https://github.com/manoel1845/gama-desafio-final', branch: 'main'
             }
         }
         stage('Build Cluster') {

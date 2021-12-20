@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-deployment-prod
+  namespace: ns-java-prod
+spec:
+  template:
+    metadata:
+      name: pod-javadb-prod
+      labels:
+        app: pod-javadb-prod
+    spec:
+      containers:
+        - name: container-pod-javadb-prod
+          image: manoel1845/projetofinal-spr-web
+          env:
+            - name: USER
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap-prod
+                  key: USER
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: PASSWORD
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap-prod
+                  key: DATABASE_URL
+          ports:
+            - containerPort: 8080
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pod-javadb-prod

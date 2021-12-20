@@ -1,0 +1,28 @@
+- hosts: all
+  become: yes
+  tasks:
+    
+    - name: "Upload Upload k8s-scripts-prod"
+      copy:
+        src: "k8s-scripts-prod"
+        dest: "/root"
+
+    - name: "Criando namespace"
+      shell: kubectl apply -f ~/k8s-scripts-prod/namespace.yaml
+
+    - name: "Aplicar configmap prod"
+      shell: kubectl apply -f ~/k8s-scripts-prod/mysql-configmap.yaml
+
+    - name: "Aplicar secret"
+      shell: kubectl apply -f ~/k8s-scripts-prod/mysql-secret.yaml
+
+    - name: "Aplicar deployment prod"
+      shell: kubectl apply -f ~/k8s-scripts-prod/deployment.yaml
+
+    - name: "Aplicar nodeport prod"
+      shell: kubectl apply -f ~/k8s-scripts-prod/nodeport.yaml
+
+    - shell: "kubectl get pods -n ns-java-prod | grep java-deployment-prod"
+      register: ps
+    - debug:
+        msg: " '{{ ps.stdout_lines }}' "

@@ -2,27 +2,27 @@
   become: yes
   tasks:
     
-    - name: "Upload k8s-scripts"
+    - name: "Upload k8s-scripts-stage"
       copy:
-        src: "k8s-scripts"
+        src: "k8s-scripts-stage"
         dest: "/root"
 
     - name: "Criando namespace"
-      shell: kubectl apply -f ~/k8s-scripts/namespace-dev.yaml
+      shell: kubectl apply -f ~/k8s-scripts-stage/namespace.yaml
 
-    - name: "Aplicar configmap dev"
-      shell: kubectl apply -f ~/k8s-scripts/mysql-configmap.yaml
+    - name: "Aplicar configmap stage"
+      shell: kubectl apply -f ~/k8s-scripts-stage/mysql-configmap.yaml
 
     - name: "Aplicar secret"
-      shell: kubectl apply -f ~/k8s-scripts/mysql-secret.yaml
+      shell: kubectl apply -f ~/k8s-scripts-stage/mysql-secret.yaml
 
-    - name: "Aplicar deployment dev"
-      shell: kubectl apply -f ~/k8s-scripts/deployment.yaml
+    - name: "Aplicar deployment stage"
+      shell: kubectl apply -f ~/k8s-scripts-stage/deployment.yaml
 
-    - name: "Aplicar nodeport dev"
-      shell: kubectl apply -f ~/k8s-scripts/nodeport.yaml
+    - name: "Aplicar nodeport stage"
+      shell: kubectl apply -f ~/k8s-scripts-stage/nodeport.yaml
 
-    - shell: "kubectl get pods -n ns-java-dev | grep java-deployment-dev"
+    - shell: "kubectl get pods -n ns-java-stage | grep java-deployment-stage"
       register: ps
     - debug:
         msg: " '{{ ps.stdout_lines }}' "

@@ -3,7 +3,7 @@ pipeline {
 
     // parameters {
     //     password(name: 'DB_PASSWORD', defaultValue: '', description: 'Senha do database')  
-    //     string(name: 'SQL_DEV', defaultValue: '', description: 'IP do database de DEV')
+    //     string(name: 'SQL_PROD', defaultValue: '', description: 'IP do database de PROD')
     // }
 
     stages {
@@ -16,8 +16,6 @@ pipeline {
 
         stage('Download App Code') {
             steps {
-                // Get some code from a GitHub repository
-                //sh 'rm -rf spring-web-youtube && git clone https://github.com/torneseumprogramador/spring-web-youtube.git'
                 sh 'rm -rf app-code'
                 sh 'mkdir app-code && cd app-code'
                 dir ('app-code'){
@@ -48,10 +46,10 @@ pipeline {
             }
         }
 
-        stage('Deploy Stage') {
+        stage('Deploy Prod') {
             steps {
-                sh 'chmod +x 4-java_stage/deploy.sh'
-                sh "4-java_stage/deploy.sh"
+                sh 'chmod +x 5-java_prod/deploy.sh'
+                sh "5-java_prod/deploy.sh"
             }
         }
 

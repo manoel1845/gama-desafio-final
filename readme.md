@@ -30,8 +30,8 @@
 
 ## Tecnologias_Utilizadas
 - AWS
-- Ubuntu
-- MySql
+- S.O. Ubuntu
+- Database MySql
 - Terraform
 - Ansible
 - Jenkins

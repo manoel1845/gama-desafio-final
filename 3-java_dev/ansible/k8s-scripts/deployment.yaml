@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: container-pod-javadb-dev
-          image: celo/projeto_final:0.0.2
+          image: manoel1845/projetofinal-spr-web
           env:
             - name: USER
               valueFrom:

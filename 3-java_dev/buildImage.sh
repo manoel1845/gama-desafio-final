@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd app-code
+cd 3-java_dev/app-code
 export DOCKER_USERNAME="manoel1845"
 export DOCKER_PASSWORD="GamaDesafio123"
 sudo docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"

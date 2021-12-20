@@ -31,7 +31,7 @@ spec:
                   key: DATABASE_URL
           ports:
             - containerPort: 8080
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: pod-javadb-dev

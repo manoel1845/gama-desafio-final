@@ -26,7 +26,7 @@ pipeline {
 
         stage('Build App') {
             steps {
-                sh 'cd app-code && ./mvnw package -Dmaven.test.skip -DskipTests -Dmaven.javadoc.skip=true'
+                sh 'cd 3-java_dev/app-code && ./mvnw package -Dmaven.test.skip -DskipTests -Dmaven.javadoc.skip=true'
                 echo 'Building..'
             }
         }

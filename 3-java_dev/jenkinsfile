@@ -24,28 +24,28 @@ pipeline {
         //     }
         // }
 
-        stage('Build App') {
-            steps {
-                sh 'cd 3-java_dev/app-code && ./mvnw package -Dmaven.test.skip -DskipTests -Dmaven.javadoc.skip=true'
-                echo 'Building..'
-            }
-        }
+        // stage('Build App') {
+        //     steps {
+        //         sh 'cd 3-java_dev/app-code && ./mvnw package -Dmaven.test.skip -DskipTests -Dmaven.javadoc.skip=true'
+        //         echo 'Building..'
+        //     }
+        // }
 
-        stage('Test App') {
-            steps {
-                //sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
-                sh "export USER=root && export PASSWORD=root && export DATABASE_URL='mysql://10.10.0.225:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd 3-java_dev/app-code && ./mvnw test"
-                echo 'Testing....'
-            }
-        }
+        // stage('Test App') {
+        //     steps {
+        //         //sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
+        //         sh "export USER=root && export PASSWORD=root && export DATABASE_URL='mysql://10.10.0.225:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd 3-java_dev/app-code && ./mvnw test"
+        //         echo 'Testing....'
+        //     }
+        // }
 
-        stage('Create and Push Docker Image') {
-            steps {
-                sh 'chmod +x 3-java_dev/buildImage.sh'
-                sh "3-java_dev/buildImage.sh"
-                echo 'pushing docker image..'
-            }
-        }
+        // stage('Create and Push Docker Image') {
+        //     steps {
+        //         sh 'chmod +x 3-java_dev/buildImage.sh'
+        //         sh "3-java_dev/buildImage.sh"
+        //         echo 'pushing docker image..'
+        //     }
+        // }
 
         stage('Deploy Dev') {
             steps {

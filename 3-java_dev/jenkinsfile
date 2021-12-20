@@ -1,18 +1,16 @@
 pipeline {
     agent any
 
-     parameters {
-        password(name: 'DB_PASSWORD', defaultValue: '', description: 'Senha do database')  
-        string(name: 'SQL_DEV', defaultValue: '', description: 'IP do database de DEV')
-    //     string(name: 'SQL_STAG', defaultValue: '', description: 'IP do database de DEV')
-    //     string(name: 'SQL_PROD', defaultValue: '', description: 'IP do database de DEV')
-    }
+    // parameters {
+    //     password(name: 'DB_PASSWORD', defaultValue: '', description: 'Senha do database')  
+    //     string(name: 'SQL_DEV', defaultValue: '', description: 'IP do database de DEV')
+    // }
 
     stages {
         
         stage('Download Infra Code') {
             steps {
-                git url: 'git@github.com:manoel1845/gama-desafio-final.git', branch: 'main'
+                git url: 'https://github.com/manoel1845/gama-desafio-final.git', branch: 'main'
             }
         }
 
@@ -36,22 +34,23 @@ pipeline {
         stage('Test App') {
             steps {
                 sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
+                //sh "export USER=root && export PASSWORD=root && export DATABASE_URL='mysql://10.10.0.225:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
                 echo 'Testing....'
             }
         }
 
-        stage('Create and Push Docker image') {
+        stage('Create and Push Docker Image') {
             steps {
-                sh 'chmod +x 3-java-dev/buildImage.sh'
-                sh "3-java-dev/buildImage.sh"
+                sh 'chmod +x 3-java_dev/buildImage.sh'
+                sh "3-java_dev/buildImage.sh"
                 echo 'pushing docker image..'
             }
         }
 
         stage('Deploy Dev') {
             steps {
-                sh 'chmod +x 3-java-dev/deployDev.sh'
-                sh "3-java-dev/deployDev.sh"
+                sh 'chmod +x 3-java_dev/deploy.sh'
+                sh "3-java_dev/deploy.sh"
             }
         }
 

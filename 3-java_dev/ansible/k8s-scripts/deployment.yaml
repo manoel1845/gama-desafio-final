@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: container-pod-javadb-dev
-          image: manoel1845/javaSpring:0.0.1
+          image: manoel1845/javaspring:0.0.1
           env:
             - name: USER
               valueFrom:

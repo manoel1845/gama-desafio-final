@@ -40,13 +40,6 @@ pipeline {
             }
         }
 
-        // stage('Create and Push Docker image') {
-        //     steps {
-        //         sh "cd app-code && docker build -t manoel1845/javaspring:0.0.1 -f Dockerfile . && docker push manoel1845/javaspring:0.0.1"
-        //         echo 'pushing docker image..'
-        //     }
-        // }
-
         stage('Create and Push Docker image') {
             steps {
                 sh 'chmod +x 3-java-dev/buildImage.sh'
@@ -62,18 +55,5 @@ pipeline {
             }
         }
 
-        // stage('Deploy Stag') {
-        //     steps {
-        //         sh 'chmod +x 05-pipelineAPP/deployStag.sh'
-        //         sh "05-pipelineAPP/deployStag.sh"
-        //     }
-        // }
-
-        // stage('Deploy Prod') {
-        //     steps {
-        //         sh 'chmod +x 05-pipelineAPP/deployProd.sh'
-        //         sh "05-pipelineAPP/deployProd.sh"
-        //     }
-        // }
     }
 }

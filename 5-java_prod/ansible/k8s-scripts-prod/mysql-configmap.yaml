@@ -5,4 +5,4 @@ metadata:
   namespace: ns-java-prod
 data:
   USER: root
-  DATABASE_URL: mysql://10.10.1.165:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC
+  DATABASE_URL: mysql://10.10.2.34:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC

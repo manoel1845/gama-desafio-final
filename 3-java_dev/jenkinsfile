@@ -14,15 +14,15 @@ pipeline {
             }
         }
 
-        stage('Download App Code') {
-            steps {
-                sh 'rm -rf app-code'
-                sh 'mkdir app-code && cd app-code'
-                dir ('app-code'){
-                    git url: 'https://github.com/Didox/spring-web-youtube.git', branch: 'main'
-                }
-            }
-        }
+        // stage('Download App Code') {
+        //     steps {
+        //         sh 'rm -rf app-code'
+        //         sh 'mkdir app-code && cd app-code'
+        //         dir ('app-code'){
+        //             git url: 'https://github.com/Didox/spring-web-youtube.git', branch: 'main'
+        //         }
+        //     }
+        // }
 
         stage('Build App') {
             steps {

@@ -43,7 +43,7 @@ pipeline {
 
         stage('Create and Push Docker image') {
             steps {
-                sh "cd app-code && docker build -t manoel1845/projetofinal-spr-web -f Dockerfile . && docker push manoel1845/projetofinal-spr-web"
+                sh "cd app-code && sudo docker build -t manoel1845/projetofinal-spr-web -f Dockerfile . && sudo docker push manoel1845/projetofinal-spr-web"
                 echo 'pushing docker image..'
             }
         }

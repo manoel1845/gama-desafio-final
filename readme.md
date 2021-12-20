@@ -37,14 +37,22 @@
 - Docker
 
 
-## Topologia
+## Topologia Infra AWS
 <p align="center">
   <a>
-    <img alt="Topologia_infra" title="Topologia Infra" src="topologias/infra-K8S.jpg" width="500">
+    <img alt="Topologia_infra" title="Topologia Infra" src="topologias/infra-K8S.jpg">
   </a>
 </p>
 
 <!-- If you have screenshots you'd like to share, include them here. -->
+
+## Topologia Workload
+<p align="center">
+  <a>
+    <img alt="Topologia_wkl" title="Topologia Workload" src="topologias/workload_topologia-Workload.jpg">
+  </a>
+</p>
+
 
 
 ## Agradecimentos

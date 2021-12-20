@@ -48,14 +48,6 @@ pipeline {
             }
         }
 
-        // stage('Create and Push Docker Image') {
-        //     steps {
-        //         sh 'chmod +x 3-java_dev/buildImage.sh'
-        //         sh "3-java_dev/buildImage.sh"
-        //         echo 'pushing docker image..'
-        //     }
-        // }
-
         stage('Deploy Dev') {
             steps {
                 sh 'chmod +x 3-java_dev/deploy.sh'

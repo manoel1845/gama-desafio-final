@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-deployment-dev
+  name: java-deployment-stage
   namespace: ns-java-stage
 spec:
   template:
     metadata:
-      name: pod-javadb-dev
+      name: pod-javadb-stage
       labels:
-        app: pod-javadb-dev
+        app: pod-javadb-stage
     spec:
       containers:
-        - name: container-pod-javadb-dev
+        - name: container-pod-javadb-stage
           image: manoel1845/projetofinal-spr-web
           env:
             - name: USER
               valueFrom:
                 configMapKeyRef:
-                  name: mysql-configmap-dev
+                  name: mysql-configmap-stage
                   key: USER
             - name: PASSWORD
               valueFrom:
@@ -27,11 +27,11 @@ spec:
             - name: DATABASE_URL
               valueFrom:
                 configMapKeyRef:
-                  name: mysql-configmap-dev
+                  name: mysql-configmap-stage
                   key: DATABASE_URL
           ports:
             - containerPort: 8080
   replicas: 1
   selector:
     matchLabels:
-      app: pod-javadb-dev
+      app: pod-javadb-stage

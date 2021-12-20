@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mysql-configmap-dev
+  name: mysql-configmap-stage
   namespace: ns-java-stage
 data:
   USER: root

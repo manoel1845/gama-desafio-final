@@ -40,7 +40,7 @@
 ## Topologia
 <p align="center">
   <a>
-    <img alt="Topologia_infra" title="Topologia Infra" src="topologias/infra-K8S.jpg">
+    <img alt="Topologia_infra" title="Topologia Infra" src="topologias/infra-K8S.jpg" width="500">
   </a>
 </p>
 

@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    // parameters {
+    //     password(name: 'DB_PASSWORD', defaultValue: '', description: 'Senha do database')  
+    //     string(name: 'SQL_DEV', defaultValue: '', description: 'IP do database de DEV')
+    // }
+
+    stages {
+        
+        stage('Download Infra Code') {
+            steps {
+                git url: 'https://github.com/manoel1845/gama-desafio-final.git', branch: 'main'
+            }
+        }
+
+        stage('Download App Code') {
+            steps {
+                // Get some code from a GitHub repository
+                //sh 'rm -rf spring-web-youtube && git clone https://github.com/torneseumprogramador/spring-web-youtube.git'
+                sh 'rm -rf app-code'
+                sh 'mkdir app-code && cd app-code'
+                dir ('app-code'){
+                    git url: 'https://github.com/torneseumprogramador/spring-web-youtube.git', branch: 'deploy-docker'
+                }
+            }
+        }
+
+        stage('Build App') {
+            steps {
+                sh 'cd app-code && ./mvnw package -Dmaven.test.skip -DskipTests -Dmaven.javadoc.skip=true'
+                echo 'Building..'
+            }
+        }
+
+        stage('Test App') {
+            steps {
+                //sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
+                sh "export USER=root && export PASSWORD=root && export DATABASE_URL='mysql://10.10.0.225:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
+                echo 'Testing....'
+            }
+        }
+
+        stage('Create and Push Docker image') {
+            steps {
+                sh "cd app-code && sudo docker build -t manoel1845/projetofinal-spr-web -f Dockerfile . && sudo docker push manoel1845/projetofinal-spr-web"
+                echo 'pushing docker image..'
+            }
+        }
+
+        stage('Deploy Dev') {
+            steps {
+                sh 'chmod +x 4-java_stage/deploy.sh'
+                sh "4-java_stage/deploy.sh"
+            }
+        }
+
+    }
+}

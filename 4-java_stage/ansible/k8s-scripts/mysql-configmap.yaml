@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap-dev
+  namespace: ns-java-stage
+data:
+  USER: root
+  DATABASE_URL: mysql://10.10.1.165:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC

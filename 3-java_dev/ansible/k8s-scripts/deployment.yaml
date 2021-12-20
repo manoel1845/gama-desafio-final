@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: java-deployment-dev
+  namespace: ns-java-dev
 spec:
   template:
     metadata:
-      namespace: ns-java-dev
       name: pod-javadb-dev
       labels:
         app: pod-javadb-dev

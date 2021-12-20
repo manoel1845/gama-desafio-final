@@ -5,19 +5,22 @@
     - name: "Upload k8s-scripts"
       copy:
         src: "k8s-scripts"
-        dest: "~/"
+        dest: "/root"
+
+    - name: "Criando namespace"
+      shell: kubectl apply -f ~/k8s-scripts/namespace-dev.yaml
 
     - name: "Aplicar configmap dev"
-      shell: kubectl apply -f ~/k8s-scripts/mysql-configmap-dev.yml
+      shell: kubectl apply -f ~/k8s-scripts/mysql-configmap.yaml
 
     - name: "Aplicar secret"
-      shell: kubectl apply -f ~/k8s-scripts/mysql-secret.yml
+      shell: kubectl apply -f ~/k8s-scripts/mysql-secret.yaml
 
     - name: "Aplicar deployment dev"
-      shell: kubectl apply -f ~/k8s-scripts/deployment-dev.yml
+      shell: kubectl apply -f ~/k8s-scripts/deployment.yaml
 
     - name: "Aplicar nodeport dev"
-      shell: kubectl apply -f ~/k8s-scripts/nodeport-javadb-dev.yml
+      shell: kubectl apply -f ~/k8s-scripts/nodeport.yaml
 
     - shell: "kubectl get pods | grep java-deployment-dev"
       register: ps

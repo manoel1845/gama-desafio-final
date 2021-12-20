@@ -5,6 +5,7 @@ metadata:
 spec:
   template:
     metadata:
+      namespace: ns-java-dev
       name: pod-javadb-dev
       labels:
         app: pod-javadb-dev

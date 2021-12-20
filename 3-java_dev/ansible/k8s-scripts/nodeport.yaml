@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nodeport-pod-javadb-dev
+  namespace: ns-java-dev
 spec:
   type: NodePort
   ports:

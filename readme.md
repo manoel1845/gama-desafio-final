@@ -40,7 +40,7 @@
 ## Topologia Infra AWS
 <p align="center">
   <a>
-    <img alt="Topologia_infra" title="Topologia Infra" src="topologias/infra-K8S.jpg">
+    <img alt="Topologia_infra" title="Topologia Infra" src="topologias/infra-K8S-1.jpg">
   </a>
 </p>
 
@@ -49,7 +49,7 @@
 ## Topologia Workload
 <p align="center">
   <a>
-    <img alt="Topologia_wkl" title="Topologia Workload" src="topologias/workload_topologia-Workload.jpg">
+    <img alt="Topologia_wkl" title="Topologia Workload" src="topologias/workload_topologia-Workload-1.jpg">
   </a>
 </p>
 
